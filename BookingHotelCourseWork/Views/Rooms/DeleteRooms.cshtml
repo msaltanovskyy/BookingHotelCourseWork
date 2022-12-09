@@ -1,0 +1,56 @@
+﻿@model BookingHotelCourseWork.Models.Rooms
+
+@{
+    ViewData["Title"] = "DeleteRooms";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы уверены?</h3>
+<div>
+    <h4>Комната</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Class)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Class.ClassId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hotel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hotel.Adress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Chair)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Chair)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.isStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.isStatus)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteRoomsConf">
+        <input type="hidden" asp-for="RoomsId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+    </form>
+</div>

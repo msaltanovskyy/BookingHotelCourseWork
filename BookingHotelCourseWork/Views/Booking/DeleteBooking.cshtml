@@ -1,0 +1,9 @@
+﻿@model BookingHotelCourseWork.Models.Booking
+
+<h3>Удалить бронь?</h3>
+<div> 
+    <form asp-action="DeleteBookingConf">
+        <input type="hidden" asp-for="BookingId" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </form>
+</div>

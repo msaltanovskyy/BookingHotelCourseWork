@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BookingHotelCourseWork.Models.Hotel>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        <a class = "btn btn-primary" asp-controller="Hotel" asp-action="CreateHotel">Добавить отель</a>
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberRooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Raiting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeHotel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberRooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Raiting.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeHotel.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Hotel" asp-action="EditHotel" asp-route-id="@item.HotelId">Редактировать</a> 
+                    <a asp-controller="Hotel" asp-action="DeleteHotel" asp-route-id="@item.HotelId">Удалить</a>
+                }else
+                {
+                    <a asp-controller="Hotel" asp-action="DeteailsHotel" asp-route-id = "@item.HotelId">Подробнее</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

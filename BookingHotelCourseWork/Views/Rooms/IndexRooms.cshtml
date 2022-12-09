@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BookingHotelCourseWork.Models.Rooms>
+
+@if (User.IsInRole("Administrator"))
+{
+    <p>
+        <a class="btn btn-primary" asp-controller = "Rooms" asp-action="CreateRooms">Добавить комнату</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chair)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chair)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isStatus)
+            </td>
+            <td>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <a asp-controller = "Rooms" asp-action="EditRooms" asp-route-id="@item.RoomsId">Редактировать</a> 
+                        <a asp-controller = "Rooms"  asp-action="DeleteRooms" asp-route-id="@item.RoomsId">Удалить</a>
+                        
+                    }else{
+                        <a asp-controller="Rooms" asp-action="BookingRooms" asp-route-id="@item.RoomsId">Забронировать</a>
+                    }
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

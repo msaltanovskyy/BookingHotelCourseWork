@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <h3>Моя бронь</h3>
+    @await Html.PartialAsync("../Booking/BookingIndex", ViewData["MyBooking"])
+    <h3>Доступные отели</h3>
+    @await Html.PartialAsync("../Hotel/IndexHotel", ViewData["Hotels"])
+</div>

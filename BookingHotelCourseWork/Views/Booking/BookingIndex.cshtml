@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BookingHotelCourseWork.Models.Booking>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEnd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEnd)
+            </td>
+            <td>
+                    @if (User.IsInRole("Administrator")) {
+                        <a asp-controller="Booking" asp-action="EditBooking" asp-route-id="@item.BookingId">Редактировать</a>
+                    
+                        <a asp-controller = "Booking" asp-action = "DeleteBooking" asp-route-id = "@item.BookingId" > Удалить </a>
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

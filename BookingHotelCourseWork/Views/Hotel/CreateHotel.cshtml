@@ -1,0 +1,59 @@
+﻿@model BookingHotelCourseWork.Models.Hotel
+
+<h4>Добавить отель</h4>
+<hr />
+<div class="row">
+    <div class="col-sm-4">
+        <form asp-action="CreateHotel">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adress" class="control-label"></label>
+                <input asp-for="Adress" class="form-control" />
+                <span asp-validation-for="Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberRooms" class="control-label"></label>
+                <input asp-for="NumberRooms" class="form-control" />
+                <span asp-validation-for="NumberRooms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RaitingId" class="control-label"></label>
+                <select asp-for="RaitingId" class ="form-control" asp-items="ViewBag.RaitingId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeHotelId" class="control-label"></label>
+                <select asp-for="TypeHotelId" class ="form-control" asp-items="ViewBag.TypeHotelId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId" ></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top: 5px">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

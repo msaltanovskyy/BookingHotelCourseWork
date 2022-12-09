@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Admin-panel";
+}
+
+<h1 class="text-center bg-info bg-opacity-50">Admin-panel</h1>
+
+<div class="container bg-opacity-10 bg-info">
+    <h3 class="text-center">Список пользователей</h3>
+    @await Html.PartialAsync("../User/IndexUser", ViewData["Users"])
+    <h3 class="text-center">Список отелей</h3>
+    @await Html.PartialAsync("../Hotel/IndexHotel", ViewData["Hotels"])
+</div>
+
